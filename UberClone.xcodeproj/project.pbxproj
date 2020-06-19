@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,15 @@
 		92894A1A248720F20010BF88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92894A19248720F20010BF88 /* Assets.xcassets */; };
 		92894A1D248720F20010BF88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92894A1B248720F20010BF88 /* LaunchScreen.storyboard */; };
 		92894A28248720F20010BF88 /* UberCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A27248720F20010BF88 /* UberCloneTests.swift */; };
-		92894A34248729F90010BF88 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92894A33248729F90010BF88 /* GoogleService-Info-2.plist */; };
+		92894A3724872EDC0010BF88 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A3624872EDC0010BF88 /* Coordinator.swift */; };
+		92894A392487304D0010BF88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92894A382487304D0010BF88 /* GoogleService-Info.plist */; };
+		92894A3B2487311E0010BF88 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A3A2487311E0010BF88 /* Storyboarded.swift */; };
+		92894A3D248733FA0010BF88 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A3C248733FA0010BF88 /* MainCoordinator.swift */; };
+		92894A41248868930010BF88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A3F248868930010BF88 /* LoginViewController.swift */; };
+		92894A42248868930010BF88 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92894A40248868930010BF88 /* LoginViewController.xib */; };
+		92894A4524886DBB0010BF88 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A4324886DBB0010BF88 /* CreateAccountViewController.swift */; };
+		92894A4624886DBB0010BF88 /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92894A4424886DBB0010BF88 /* CreateAccountViewController.xib */; };
+		92C1E24A249C440600505220 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E249249C440600505220 /* LoginCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +55,15 @@
 		92894A23248720F20010BF88 /* UberCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberCloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92894A27248720F20010BF88 /* UberCloneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCloneTests.swift; sourceTree = "<group>"; };
 		92894A29248720F20010BF88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92894A33248729F90010BF88 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info-2.plist"; path = "../../../Downloads/GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		92894A3624872EDC0010BF88 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		92894A382487304D0010BF88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92894A3A2487311E0010BF88 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		92894A3C248733FA0010BF88 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		92894A3F248868930010BF88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		92894A40248868930010BF88 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		92894A4324886DBB0010BF88 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		92894A4424886DBB0010BF88 /* CreateAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
+		92C1E249249C440600505220 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +94,6 @@
 				2BF9DE7950D70E5C4D5B1649 /* Pods-UberCloneTests.debug.xcconfig */,
 				4359D337C18841DCD071E579 /* Pods-UberCloneTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -114,15 +129,16 @@
 		92894A0F248720EF0010BF88 /* UberClone */ = {
 			isa = PBXGroup;
 			children = (
-				92894A32248721620010BF88 /* Coordinator */,
 				92894A10248720EF0010BF88 /* AppDelegate.swift */,
 				92894A12248720EF0010BF88 /* SceneDelegate.swift */,
 				92894A14248720EF0010BF88 /* ViewController.swift */,
 				92894A16248720EF0010BF88 /* Main.storyboard */,
+				92894A3E2487F8AE0010BF88 /* Views */,
+				92894A32248721620010BF88 /* Coordinator */,
 				92894A19248720F20010BF88 /* Assets.xcassets */,
 				92894A1B248720F20010BF88 /* LaunchScreen.storyboard */,
+				92894A382487304D0010BF88 /* GoogleService-Info.plist */,
 				92894A1E248720F20010BF88 /* Info.plist */,
-				92894A33248729F90010BF88 /* GoogleService-Info-2.plist */,
 			);
 			path = UberClone;
 			sourceTree = "<group>";
@@ -139,8 +155,23 @@
 		92894A32248721620010BF88 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				92894A3624872EDC0010BF88 /* Coordinator.swift */,
+				92894A3A2487311E0010BF88 /* Storyboarded.swift */,
+				92894A3C248733FA0010BF88 /* MainCoordinator.swift */,
+				92C1E249249C440600505220 /* LoginCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		92894A3E2487F8AE0010BF88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92894A3F248868930010BF88 /* LoginViewController.swift */,
+				92894A40248868930010BF88 /* LoginViewController.xib */,
+				92894A4324886DBB0010BF88 /* CreateAccountViewController.swift */,
+				92894A4424886DBB0010BF88 /* CreateAccountViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,9 +258,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92894A42248868930010BF88 /* LoginViewController.xib in Resources */,
 				92894A1D248720F20010BF88 /* LaunchScreen.storyboard in Resources */,
+				92894A4624886DBB0010BF88 /* CreateAccountViewController.xib in Resources */,
+				92894A392487304D0010BF88 /* GoogleService-Info.plist in Resources */,
 				92894A1A248720F20010BF88 /* Assets.xcassets in Resources */,
-				92894A34248729F90010BF88 /* GoogleService-Info-2.plist in Resources */,
 				92894A18248720EF0010BF88 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,7 +345,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92894A41248868930010BF88 /* LoginViewController.swift in Sources */,
+				92894A3724872EDC0010BF88 /* Coordinator.swift in Sources */,
+				92894A3D248733FA0010BF88 /* MainCoordinator.swift in Sources */,
 				92894A15248720EF0010BF88 /* ViewController.swift in Sources */,
+				92894A4524886DBB0010BF88 /* CreateAccountViewController.swift in Sources */,
+				92894A3B2487311E0010BF88 /* Storyboarded.swift in Sources */,
+				92C1E24A249C440600505220 /* LoginCoordinator.swift in Sources */,
 				92894A11248720EF0010BF88 /* AppDelegate.swift in Sources */,
 				92894A13248720EF0010BF88 /* SceneDelegate.swift in Sources */,
 			);
