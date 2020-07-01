@@ -25,9 +25,9 @@ class LoginCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func didFinishLogin() {
-        parentCoordinator?.childDidFinish(self)
-    }
+//    func didFinishLogin() {
+//        parentCoordinator?.childDidFinish(self)
+//    }
     
     
 }

@@ -18,11 +18,11 @@ class LoginViewController: UIViewController, Storyboarded {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        coordinator?.didFinishLogin()
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//        
+//        coordinator?.didFinishLogin()
+//    }
 
 
     /*
