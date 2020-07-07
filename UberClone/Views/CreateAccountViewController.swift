@@ -7,10 +7,30 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CreateAccountViewController: UIViewController, Storyboarded {
     
     var coordinator: MainCoordinator?
+    
+    //MARK: - Outlets / Actions
+    
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var confirmPassword: UITextField!
+    @IBOutlet weak var switchType: UISwitch!
+    
+    
+    @IBAction func createButton(_ sender: Any) {
+        let emptyField = checkForEmptyFields()
+        if emptyField == "" {
+            createFirebaseUser()
+        }else {
+            print("o campo \(emptyField), não foi preenchido")
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +38,42 @@ class CreateAccountViewController: UIViewController, Storyboarded {
         // Do any additional setup after loading the view.
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func checkForEmptyFields() -> String {
+        if (self.email.text?.isEmpty)! {
+            return "e-mail"
+        } else if (self.name.text?.isEmpty)! {
+            return "nome completo"
+        } else if (self.password.text?.isEmpty)! {
+            return "senha"
+        }else if (self.confirmPassword.text?.isEmpty)! {
+            return "confirme senha"
+        }
+        return ""
+    }
+    
+    func createFirebaseUser() {
+        let auth = Auth.auth()
+        if let email = self.email.text{
+            if let name = self.name.text{
+                if let password = self.password.text{
+                    if let confirmPassword = self.confirmPassword.text{
+                        auth.createUser(withEmail: email, password: password) { (user, error) in
+                            if error == nil {
+                                print("Sucesso no Cadastro")
+                            }else {
+                                print("Erro no cadastro")
+                                print(error)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

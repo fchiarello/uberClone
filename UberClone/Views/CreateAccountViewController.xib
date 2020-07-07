@@ -9,6 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateAccountViewController" customModule="UberClone" customModuleProvider="target">
             <connections>
+                <outlet property="confirmPassword" destination="e41-pj-KvR" id="McC-J0-v9T"/>
+                <outlet property="email" destination="Lgj-CD-LLL" id="P5Z-26-8gU"/>
+                <outlet property="name" destination="nSk-XG-oaB" id="pKc-J4-2AT"/>
+                <outlet property="password" destination="uZa-xO-8u9" id="Kmj-q9-6ju"/>
+                <outlet property="switchType" destination="wqH-Wy-NLe" id="v9n-Jz-JK7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -73,7 +78,7 @@
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="digite sua senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uZa-xO-8u9">
                             <rect key="frame" x="0.0" y="28.5" width="382" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" textContentType="password"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                         </textField>
                     </subviews>
                     <constraints>
@@ -95,7 +100,7 @@
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirme sua senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e41-pj-KvR">
                             <rect key="frame" x="0.0" y="28.5" width="382" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" textContentType="password"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                         </textField>
                     </subviews>
                     <constraints>
@@ -139,6 +144,9 @@
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Cadastrar"/>
+                    <connections>
+                        <action selector="createButton:" destination="-1" eventType="touchUpInside" id="bFp-lJ-EMb"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
