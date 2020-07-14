@@ -25,6 +25,8 @@
 		92894A4524886DBB0010BF88 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A4324886DBB0010BF88 /* CreateAccountViewController.swift */; };
 		92894A4624886DBB0010BF88 /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92894A4424886DBB0010BF88 /* CreateAccountViewController.xib */; };
 		92C1E24A249C440600505220 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E249249C440600505220 /* LoginCoordinator.swift */; };
+		92C1E24D24B6A5CD00505220 /* PassengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */; };
+		92C1E24E24B6A5CD00505220 /* PassengerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		92894A4324886DBB0010BF88 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		92894A4424886DBB0010BF88 /* CreateAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
 		92C1E249249C440600505220 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerViewController.swift; sourceTree = "<group>"; };
+		92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassengerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,8 @@
 				92894A40248868930010BF88 /* LoginViewController.xib */,
 				92894A4324886DBB0010BF88 /* CreateAccountViewController.swift */,
 				92894A4424886DBB0010BF88 /* CreateAccountViewController.xib */,
+				92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */,
+				92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92C1E24E24B6A5CD00505220 /* PassengerViewController.xib in Resources */,
 				92894A42248868930010BF88 /* LoginViewController.xib in Resources */,
 				92894A1D248720F20010BF88 /* LaunchScreen.storyboard in Resources */,
 				92894A4624886DBB0010BF88 /* CreateAccountViewController.xib in Resources */,
@@ -346,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92894A41248868930010BF88 /* LoginViewController.swift in Sources */,
+				92C1E24D24B6A5CD00505220 /* PassengerViewController.swift in Sources */,
 				92894A3724872EDC0010BF88 /* Coordinator.swift in Sources */,
 				92894A3D248733FA0010BF88 /* MainCoordinator.swift in Sources */,
 				92894A15248720EF0010BF88 /* ViewController.swift in Sources */,
