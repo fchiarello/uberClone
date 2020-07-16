@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController, Storyboarded {
     
@@ -24,6 +25,7 @@ class ViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        didLoggedIn()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,5 +35,21 @@ class ViewController: UIViewController, Storyboarded {
     override func viewDidDisappear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
+    func didLoggedIn() {
+        let auth = Auth.auth()
+//        do {
+//            try auth.signOut()
+//        } catch  {
+//            
+//        }
+        
+        auth.addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                self.coordinator?.passenger()
+            }
+        }
+    }
+    
 }
 

@@ -58,15 +58,14 @@ class CreateAccountViewController: UIViewController, Storyboarded {
     func createFirebaseUser() {
         let auth = Auth.auth()
         if let email = self.email.text{
-            if let name = self.name.text{
+            if self.name.text != nil{
                 if let password = self.password.text{
-                    if let confirmPassword = self.confirmPassword.text{
+                    if self.confirmPassword.text != nil{
                         auth.createUser(withEmail: email, password: password) { (user, error) in
                             if error == nil {
-                                print("Sucesso no Cadastro")
+                                self.coordinator?.passenger()
                             }else {
                                 print("Erro no cadastro")
-                                print(error)
                             }
                         }
                     }

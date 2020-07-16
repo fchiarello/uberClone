@@ -8,8 +8,10 @@
 
 import UIKit
 
-class PassengerViewController: UIViewController {
+class PassengerViewController: UIViewController, Storyboarded {
 
+    var coordinator: PassengerCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

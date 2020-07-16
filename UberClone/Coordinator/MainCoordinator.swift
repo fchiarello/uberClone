@@ -37,6 +37,13 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func passenger() {
+        let child = PassengerCoordinator(navigationController: navigationController)
+        childCoordinators.append(child)
+        child.parentCoordinator = self
+        child.start()
+    }
+    
     func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in
             childCoordinators.enumerated() {

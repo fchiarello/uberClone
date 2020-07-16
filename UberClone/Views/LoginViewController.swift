@@ -55,18 +55,15 @@ class LoginViewController: UIViewController, Storyboarded {
             if let password = self.password.text{
                 auth.signIn(withEmail: email, password: password) { (user, error) in
                     if error == nil {
-                        if user != nil {
-                            print("Sucesso ao logar")
-                        }
+                        self.coordinator?.parentCoordinator?.passenger()
                     }else{
                         print("Erro ao logar")
                     }
                 }
             }
         }
-        
-        
     }
+    
 //    override func viewDidDisappear(_ animated: Bool) {
 //        super.viewDidDisappear(animated)
 //        

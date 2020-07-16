@@ -27,6 +27,7 @@
 		92C1E24A249C440600505220 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E249249C440600505220 /* LoginCoordinator.swift */; };
 		92C1E24D24B6A5CD00505220 /* PassengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */; };
 		92C1E24E24B6A5CD00505220 /* PassengerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */; };
+		92C1E25024BE7A5100505220 /* PassengerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E24F24BE7A5100505220 /* PassengerCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		92C1E249249C440600505220 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerViewController.swift; sourceTree = "<group>"; };
 		92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassengerViewController.xib; sourceTree = "<group>"; };
+		92C1E24F24BE7A5100505220 /* PassengerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				92894A3A2487311E0010BF88 /* Storyboarded.swift */,
 				92894A3C248733FA0010BF88 /* MainCoordinator.swift */,
 				92C1E249249C440600505220 /* LoginCoordinator.swift */,
+				92C1E24F24BE7A5100505220 /* PassengerCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				92894A41248868930010BF88 /* LoginViewController.swift in Sources */,
 				92C1E24D24B6A5CD00505220 /* PassengerViewController.swift in Sources */,
 				92894A3724872EDC0010BF88 /* Coordinator.swift in Sources */,
+				92C1E25024BE7A5100505220 /* PassengerCoordinator.swift in Sources */,
 				92894A3D248733FA0010BF88 /* MainCoordinator.swift in Sources */,
 				92894A15248720EF0010BF88 /* ViewController.swift in Sources */,
 				92894A4524886DBB0010BF88 /* CreateAccountViewController.swift in Sources */,
