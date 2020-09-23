@@ -14,11 +14,22 @@ class PassengerViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupNavigationBar()
         // Do any additional setup after loading the view.
     }
 
-
+    func setupNavigationBar() {
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 45))
+        view.addSubview(navBar)
+        let navItem = UINavigationItem(title: "UBER")
+        let button = UIBarButtonItem(title: "logout", style: .plain, target: nil, action: #selector(appLogout))
+        navItem.rightBarButtonItem = button
+        navBar.setItems([navItem], animated: false)
+    }
+    
+    @objc func appLogout() {
+        print("logout efetuado")
+    }
     /*
     // MARK: - Navigation
 
