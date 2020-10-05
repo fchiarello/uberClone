@@ -25,4 +25,11 @@ class PassengerCoordinator: Coordinator {
         
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func dismiss() {
+        let vc = PassengerViewController()
+        vc.coordinator = self
+        
+        navigationController.popViewController(animated: true)
+    }
 }

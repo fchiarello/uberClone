@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class PassengerViewController: UIViewController, Storyboarded {
 
@@ -19,25 +20,20 @@ class PassengerViewController: UIViewController, Storyboarded {
     }
 
     func setupNavigationBar() {
-        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 45))
-        view.addSubview(navBar)
-        let navItem = UINavigationItem(title: "UBER")
-        let button = UIBarButtonItem(title: "logout", style: .plain, target: nil, action: #selector(appLogout))
-        navItem.rightBarButtonItem = button
-        navBar.setItems([navItem], animated: false)
+        let button = UIBarButtonItem(title: "logout", style: .plain, target: self, action: #selector(appLogout))
+        navigationItem.leftBarButtonItem = button
+        navigationItem.title = "UBER"
     }
     
     @objc func appLogout() {
-        print("logout efetuado")
+        let auth = Auth.auth()
+        do {
+            try auth.signOut()
+            coordinator?.dismiss()
+            print("Deslogado")            
+        } catch  {
+            print("erro ao deslogar")
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
