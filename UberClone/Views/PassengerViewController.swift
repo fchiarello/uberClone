@@ -8,13 +8,18 @@
 
 import UIKit
 import FirebaseAuth
+import MapKit
 
 class PassengerViewController: UIViewController, Storyboarded {
 
     var coordinator: PassengerCoordinator?
+    var locationManager = CLLocationManager()
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUserLocation()
         setupNavigationBar()
         // Do any additional setup after loading the view.
     }
@@ -35,5 +40,33 @@ class PassengerViewController: UIViewController, Storyboarded {
             print("erro ao deslogar")
         }
     }
+    @IBAction func callUber(_ sender: Any) {
+    }
+}
 
+extension PassengerViewController: CLLocationManagerDelegate {
+    
+    func setUpUserLocation() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Recupera coordenadas do local atual
+        if let coordinates = manager.location?.coordinate {
+            let zone = MKCoordinateRegion(center: coordinates, latitudinalMeters: 200, longitudinalMeters: 200)
+            mapView.setRegion( zone, animated: true)
+            
+            //Exclui anotacoes anteriores
+            mapView.removeAnnotations(mapView.annotations)
+            
+            // Cria pinpoint para o usuario
+            let pinPoint = MKPointAnnotation()
+            pinPoint.coordinate = coordinates
+            pinPoint.title = ""
+            mapView.addAnnotation(pinPoint)
+        }
+    }
 }

@@ -28,6 +28,7 @@
 		92C1E24D24B6A5CD00505220 /* PassengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */; };
 		92C1E24E24B6A5CD00505220 /* PassengerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */; };
 		92C1E25024BE7A5100505220 /* PassengerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E24F24BE7A5100505220 /* PassengerCoordinator.swift */; };
+		92F03B49252BFBD90098C2DC /* UberConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F03B48252BFBD90098C2DC /* UberConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerViewController.swift; sourceTree = "<group>"; };
 		92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassengerViewController.xib; sourceTree = "<group>"; };
 		92C1E24F24BE7A5100505220 /* PassengerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerCoordinator.swift; sourceTree = "<group>"; };
+		92F03B48252BFBD90098C2DC /* UberConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		92894A04248720EE0010BF88 = {
 			isa = PBXGroup;
 			children = (
+				92F03B47252BFBBA0098C2DC /* Utils */,
 				92894A0F248720EF0010BF88 /* UberClone */,
 				92894A26248720F20010BF88 /* UberCloneTests */,
 				92894A0E248720EF0010BF88 /* Products */,
@@ -181,6 +184,14 @@
 				92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		92F03B47252BFBBA0098C2DC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				92F03B48252BFBD90098C2DC /* UberConstants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +375,7 @@
 				92894A4524886DBB0010BF88 /* CreateAccountViewController.swift in Sources */,
 				92894A3B2487311E0010BF88 /* Storyboarded.swift in Sources */,
 				92C1E24A249C440600505220 /* LoginCoordinator.swift in Sources */,
+				92F03B49252BFBD90098C2DC /* UberConstants.swift in Sources */,
 				92894A11248720EF0010BF88 /* AppDelegate.swift in Sources */,
 				92894A13248720EF0010BF88 /* SceneDelegate.swift in Sources */,
 			);
