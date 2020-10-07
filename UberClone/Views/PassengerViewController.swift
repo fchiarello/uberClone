@@ -8,12 +8,14 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import MapKit
 
 class PassengerViewController: UIViewController, Storyboarded {
 
     var coordinator: PassengerCoordinator?
     var locationManager = CLLocationManager()
+    var userLocation = CLLocationCoordinate2D()
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -41,6 +43,8 @@ class PassengerViewController: UIViewController, Storyboarded {
         }
     }
     @IBAction func callUber(_ sender: Any) {
+        print("CLICADO!!!!!!!!")
+        prepareForCallUber()
     }
 }
 
@@ -56,6 +60,7 @@ extension PassengerViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Recupera coordenadas do local atual
         if let coordinates = manager.location?.coordinate {
+            self.userLocation = coordinates
             let zone = MKCoordinateRegion(center: coordinates, latitudinalMeters: 200, longitudinalMeters: 200)
             mapView.setRegion( zone, animated: true)
             
@@ -68,5 +73,27 @@ extension PassengerViewController: CLLocationManagerDelegate {
             pinPoint.title = ""
             mapView.addAnnotation(pinPoint)
         }
+    }
+    
+    func prepareForCallUber() {
+        let database = Database.database().reference()
+        let requisitions = database.child(UberConstants.kRequisitions)
+        
+        requisitions.childByAutoId().setValue(getUserData())
+    }
+    
+    func getUserData() -> Dictionary<String, String> {
+        let auth = Auth.auth()
+        let email = auth.currentUser?.email
+        let name = auth.currentUser?.displayName
+        let latitude = self.userLocation.latitude
+        let longitude = self.userLocation.longitude
+        
+        let userData = [UberConstants.kEmail : email ?? "",
+                        UberConstants.kName : name ?? "Fellipe Passageiro",
+                        UberConstants.kLatitude : "\(latitude)",
+                        UberConstants.kLongitude : "\(longitude)"]
+        
+        return userData
     }
 }

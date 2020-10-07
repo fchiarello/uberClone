@@ -31,7 +31,8 @@ class LoginViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.email.text = "fellipe.passageiro@gmail.com"
+        self.password.text = "123456"
         // Do any additional setup after loading the view.
     }
     

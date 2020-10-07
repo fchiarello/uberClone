@@ -8,6 +8,12 @@
 
 import Foundation
 
-public class UberClass {
+public class UberConstants {
     static let kYourPlace = "Seu Local"
+    static let kEmail = "email"
+    static let kName = "nome"
+    static let kLatitude = "latitude"
+    static let kLongitude = "longitude"
+    static let kRequisitions = "requisicoes"
+    
 }
