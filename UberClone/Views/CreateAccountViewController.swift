@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class CreateAccountViewController: UIViewController, Storyboarded {
     
@@ -57,31 +58,42 @@ class CreateAccountViewController: UIViewController, Storyboarded {
     
     func createFirebaseUser() {
         let auth = Auth.auth()
-        if let email = self.email.text{
-            if self.name.text != nil{
-                if let password = self.password.text{
-                    if self.confirmPassword.text != nil{
-                        auth.createUser(withEmail: email, password: password) { (user, error) in
-                            if error == nil {
-                                self.coordinator?.passenger()
-                            }else {
-                                print("Erro no cadastro")
-                            }
-                        }
+        let fields = checkingFieldsForNewUser()
+        let name = self.name.text ?? String()
+        
+        if !fields {
+            auth.createUser(withEmail: self.email.text ?? String(), password: self.password.text ?? String()) { (user, error) in
+                if error == nil {
+                    if user != nil {
+                        let database = Database.database().reference()
+                        let users = database.child("usuarios")
+                        let userType = self.getUserType()
+                        let userData = ["email" : user?.user.email,
+                                        "nome" : name,
+                                        "tipo" : userType]
+                        users.child(user?.user.uid ?? "").setValue(userData)
+                        self.coordinator?.passenger()
                     }
+                } else {
+                    print(error?.localizedDescription)
                 }
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func checkingFieldsForNewUser() -> Bool {
+        if let email = self.email.text, let name = self.name.text, let password = self.password.text, let confirm = confirmPassword.text, email.isEmpty || name.isEmpty || password.isEmpty || confirm.isEmpty {
+            return true
+        } else {
+            return false
+        }
     }
-    */
-
+    
+    func getUserType() -> String {
+        if switchType.isOn {
+            return "passageiro"
+        } else {
+            return "motorista"
+        }
+    }
 }
