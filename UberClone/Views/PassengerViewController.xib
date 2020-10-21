@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PassengerViewController" customModule="UberClone" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="x0u-0J-7Iu" id="MlF-ln-eqd"/>
+                <outlet property="uberButton" destination="UjO-g1-z1r" id="CJq-3x-lUW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,7 +26,7 @@
                 </mapView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjO-g1-z1r">
                     <rect key="frame" x="0.0" y="612" width="375" height="55"/>
-                    <color key="backgroundColor" red="0.066070727999999995" green="0.46233177190000002" blue="0.48235911129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.015441196040000001" green="0.4702314138" blue="0.4862803221" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="QMX-4J-RDg"/>
                     </constraints>

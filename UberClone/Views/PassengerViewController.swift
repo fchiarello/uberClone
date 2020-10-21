@@ -16,8 +16,13 @@ class PassengerViewController: UIViewController, Storyboarded {
     var coordinator: PassengerCoordinator?
     var locationManager = CLLocationManager()
     var userLocation = CLLocationCoordinate2D()
+    var uberCalled: Bool = false
+    
+    let auth = Auth.auth()
+    let database = Database.database().reference()
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var uberButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +37,16 @@ class PassengerViewController: UIViewController, Storyboarded {
         navigationItem.title = "UBER"
     }
     
+    func setupButton() {
+        if !uberCalled {
+            uberButton.setTitle("chamar Uber", for: .normal)
+            uberButton.backgroundColor = UIColor(red: 4.0/255.0, green: 120.0/255.0, blue: 124/255.0, alpha: 1)
+        } else {
+            uberButton.setTitle("cancelar", for: .normal)
+            uberButton.backgroundColor = .red
+        }
+    }
+
     @objc func appLogout() {
         let auth = Auth.auth()
         do {
@@ -43,8 +58,14 @@ class PassengerViewController: UIViewController, Storyboarded {
         }
     }
     @IBAction func callUber(_ sender: Any) {
-        print("CLICADO!!!!!!!!")
-        prepareForCallUber()
+        if !uberCalled{
+            self.uberCalled = true
+            prepareForCallUber()
+            self.setupButton()
+        } else {
+            self.uberCalled = false
+            self.setupButton()
+        }
     }
 }
 
@@ -70,29 +91,35 @@ extension PassengerViewController: CLLocationManagerDelegate {
             // Cria pinpoint para o usuario
             let pinPoint = MKPointAnnotation()
             pinPoint.coordinate = coordinates
-            pinPoint.title = ""
+            pinPoint.title = String()
             mapView.addAnnotation(pinPoint)
         }
     }
     
     func prepareForCallUber() {
-        let database = Database.database().reference()
-        let requisitions = database.child(UberConstants.kRequisitions)
+        let requisitions = self.database.child(UberConstants.kRequisitions)
         
         requisitions.childByAutoId().setValue(getUserData())
     }
     
+    func cancelUberCall() {
+        let requisitions = self.database.child(UberConstants.kRequisitions)
+        
+        requisitions.queryOrdered(byChild: UberConstants.kEmail).observeSingleEvent(of: .value) { (snapshot) in
+            
+        }
+    }
+    
     func getUserData() -> Dictionary<String, String> {
-        let auth = Auth.auth()
-        let email = auth.currentUser?.email
-        let name = auth.currentUser?.displayName
+        let email = self.auth.currentUser?.email
+        let name = self.auth.currentUser?.displayName
         let latitude = self.userLocation.latitude
         let longitude = self.userLocation.longitude
         
-        let userData = [UberConstants.kEmail : email ?? "",
-                        UberConstants.kName : name ?? "Fellipe Passageiro",
-                        UberConstants.kLatitude : "\(latitude)",
-                        UberConstants.kLongitude : "\(longitude)"]
+        let userData = [UberConstants.kEmail : email ?? String(),
+                        UberConstants.kName : name ?? String(),
+                        UberConstants.kLatitude : String(describing: latitude),
+                        UberConstants.kLongitude : String(describing: longitude)]
         
         return userData
     }

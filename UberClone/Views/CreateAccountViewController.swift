@@ -71,7 +71,7 @@ class CreateAccountViewController: UIViewController, Storyboarded {
                         let userData = ["email" : user?.user.email,
                                         "nome" : name,
                                         "tipo" : userType]
-                        users.child(user?.user.uid ?? "").setValue(userData)
+                        users.child(user?.user.uid ?? String()).setValue(userData)
                         self.coordinator?.passenger()
                     }
                 } else {
