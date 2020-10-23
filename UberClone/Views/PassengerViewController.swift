@@ -28,7 +28,6 @@ class PassengerViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setUpUserLocation()
         setupNavigationBar()
-        // Do any additional setup after loading the view.
     }
 
     func setupNavigationBar() {
@@ -65,6 +64,7 @@ class PassengerViewController: UIViewController, Storyboarded {
         } else {
             self.uberCalled = false
             self.setupButton()
+            cancelUberCall()
         }
     }
 }
@@ -105,8 +105,9 @@ extension PassengerViewController: CLLocationManagerDelegate {
     func cancelUberCall() {
         let requisitions = self.database.child(UberConstants.kRequisitions)
         
-        requisitions.queryOrdered(byChild: UberConstants.kEmail).observeSingleEvent(of: .value) { (snapshot) in
-            
+        let userEmail = self.auth.currentUser?.email ?? String()
+        requisitions.queryOrdered(byChild: UberConstants.kEmail).queryEqual(toValue: userEmail).observeSingleEvent(of: .childAdded) { (snapshot) in
+            snapshot.ref.removeValue()
         }
     }
     
