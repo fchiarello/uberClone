@@ -22,20 +22,19 @@ class CreateAccountViewController: UIViewController, Storyboarded {
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var switchType: UISwitch!
     
+    let auth = Auth.auth()
     
     @IBAction func createButton(_ sender: Any) {
-        let emptyField = checkForEmptyFields()
-        if emptyField == "" {
             createFirebaseUser()
-        }else {
-            print("o campo \(emptyField), não foi preenchido")
-        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.email.text = "motorista2@gmail.com"
+        self.name.text = "motorista2"
+        self.password.text = "123456"
+        self.confirmPassword.text = "123456"
         // Do any additional setup after loading the view.
     }
 
@@ -43,26 +42,12 @@ class CreateAccountViewController: UIViewController, Storyboarded {
         self.view.endEditing(true)
     }
     
-    func checkForEmptyFields() -> String {
-        if (self.email.text?.isEmpty)! {
-            return "e-mail"
-        } else if (self.name.text?.isEmpty)! {
-            return "nome completo"
-        } else if (self.password.text?.isEmpty)! {
-            return "senha"
-        }else if (self.confirmPassword.text?.isEmpty)! {
-            return "confirme senha"
-        }
-        return ""
-    }
-    
     func createFirebaseUser() {
-        let auth = Auth.auth()
         let fields = checkingFieldsForNewUser()
         let name = self.name.text ?? String()
         
         if !fields {
-            auth.createUser(withEmail: self.email.text ?? String(), password: self.password.text ?? String()) { (user, error) in
+            self.auth.createUser(withEmail: self.email.text ?? String(), password: self.password.text ?? String()) { (user, error) in
                 if error == nil {
                     if user != nil {
                         let database = Database.database().reference()
@@ -72,12 +57,19 @@ class CreateAccountViewController: UIViewController, Storyboarded {
                                         "nome" : name,
                                         "tipo" : userType]
                         users.child(user?.user.uid ?? String()).setValue(userData)
-                        self.coordinator?.passenger()
+//                        if userType == UberConstants.kDriver{
+//                            self.coordinator?.driver()
+//                        } else {
+//                            self.coordinator?.passenger()
+//                        }
                     }
                 } else {
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription ?? "erro")
                 }
             }
+        } else {
+            //tratar erro
+            print("Preencher todos os campos.")
         }
     }
     
@@ -91,9 +83,9 @@ class CreateAccountViewController: UIViewController, Storyboarded {
     
     func getUserType() -> String {
         if switchType.isOn {
-            return "passageiro"
+            return UberConstants.kPassenger
         } else {
-            return "motorista"
+            return UberConstants.kDriver
         }
     }
 }

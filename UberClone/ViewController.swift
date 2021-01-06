@@ -8,10 +8,14 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class ViewController: UIViewController, Storyboarded {
     
     var coordinator: MainCoordinator?
+    
+    let auth = Auth.auth()
+    let database = Database.database().reference()
     
     @IBAction func entrarTapped(_ sender: Any) {
         coordinator?.login()
@@ -37,19 +41,31 @@ class ViewController: UIViewController, Storyboarded {
     }
     
     func didLoggedIn() {
-        let auth = Auth.auth()
-//        do {
-//            try auth.signOut()
-//        } catch  {
-//            
-//        }
-        
-        auth.addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                self.coordinator?.passenger()
+        self.auth.addStateDidChangeListener { (auth, user) in
+            if let usuario = user {
+                let users = self.database.child(UberConstants.kuser).child(usuario.uid)
+                users.observeSingleEvent(of: .value) { (snapshot) in
+                    let data = snapshot.value as? NSDictionary
+                    guard let userType = data?[UberConstants.kType] as? String else {return}
+                    if userType == UberConstants.kDriver {
+                        self.coordinator?.driver()
+                    } else {
+                        self.coordinator?.passenger()
+                    }
+                }
             }
         }
     }
     
+    func checkUserType(uid: String) -> String {
+        var type = String()
+            let users = self.database.child(UberConstants.kuser).child(uid)
+            users.observeSingleEvent(of: .value) { (snapshot) in
+                let data = snapshot.value as? NSDictionary
+                let userType = data?[UberConstants.kType] as? String
+                type = userType ?? "erro"
+            }
+        return type
+    }
 }
 

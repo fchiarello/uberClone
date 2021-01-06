@@ -8,11 +8,13 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController, Storyboarded {
     
     var coordinator: LoginCoordinator?
-    
+    let auth = Auth.auth()
+
     //MARK: - Outlets / Actions
     
     @IBOutlet weak var email: UITextField!
@@ -31,9 +33,8 @@ class LoginViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.email.text = "fellipe.passageiro@gmail.com"
+        self.email.text = "motorista@gmail.com"
         self.password.text = "123456"
-        // Do any additional setup after loading the view.
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -50,8 +51,6 @@ class LoginViewController: UIViewController, Storyboarded {
     }
     
     func authUser() {
-        let auth = Auth.auth()
-        
         if let email = self.email.text{
             if let password = self.password.text{
                 auth.signIn(withEmail: email, password: password) { (user, error) in
@@ -64,4 +63,17 @@ class LoginViewController: UIViewController, Storyboarded {
             }
         }
     }
+    
+    func getUserType() -> String {
+        let ref = Database.database().reference()
+        var tipo = String()
+        if let id = self.auth.currentUser?.uid {
+            ref.child("usuarios").child(id).observeSingleEvent(of: .value) { (snap) in
+                let value = snap.value as? NSDictionary
+                tipo = String(describing: value?["tipo"])
+            }
+        }
+        return tipo
+    }
 }
+

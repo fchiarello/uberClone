@@ -15,5 +15,8 @@ public class UberConstants {
     static let kLatitude = "latitude"
     static let kLongitude = "longitude"
     static let kRequisitions = "requisicoes"
-    
+    static let kPassenger = "passageiro"
+    static let kDriver = "motorista"
+    static let kuser = "usuarios"
+    static let kType = "tipo"
 }

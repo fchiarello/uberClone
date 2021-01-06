@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5AB62A04F029A2650BB3DAAF /* Pods_UberClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC0D4D3FBF25C99513477F2 /* Pods_UberClone.framework */; };
 		6BB2F76F1A0D368E5A0E55A8 /* Pods_UberCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE766D0F365F8AC24BE649A /* Pods_UberCloneTests.framework */; };
+		92358368259386CF00FA754F /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92358367259386CF00FA754F /* UserType.swift */; };
 		92894A11248720EF0010BF88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A10248720EF0010BF88 /* AppDelegate.swift */; };
 		92894A13248720EF0010BF88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A12248720EF0010BF88 /* SceneDelegate.swift */; };
 		92894A15248720EF0010BF88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A14248720EF0010BF88 /* ViewController.swift */; };
@@ -24,6 +25,9 @@
 		92894A42248868930010BF88 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92894A40248868930010BF88 /* LoginViewController.xib */; };
 		92894A4524886DBB0010BF88 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894A4324886DBB0010BF88 /* CreateAccountViewController.swift */; };
 		92894A4624886DBB0010BF88 /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92894A4424886DBB0010BF88 /* CreateAccountViewController.xib */; };
+		92B47749255083790000A705 /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B47747255083790000A705 /* DriverViewController.swift */; };
+		92B4774A255083790000A705 /* DriverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B47748255083790000A705 /* DriverViewController.xib */; };
+		92B4774E255084420000A705 /* DriverCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B4774D255084420000A705 /* DriverCoordinator.swift */; };
 		92C1E24A249C440600505220 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E249249C440600505220 /* LoginCoordinator.swift */; };
 		92C1E24D24B6A5CD00505220 /* PassengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */; };
 		92C1E24E24B6A5CD00505220 /* PassengerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */; };
@@ -48,6 +52,7 @@
 		5E8935DCE037B8421CCAECCD /* Pods-UberClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.release.xcconfig"; path = "Target Support Files/Pods-UberClone/Pods-UberClone.release.xcconfig"; sourceTree = "<group>"; };
 		7DC0D4D3FBF25C99513477F2 /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE766D0F365F8AC24BE649A /* Pods_UberCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92358367259386CF00FA754F /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		92894A0D248720EF0010BF88 /* UberClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92894A10248720EF0010BF88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92894A12248720EF0010BF88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +72,9 @@
 		92894A40248868930010BF88 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		92894A4324886DBB0010BF88 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		92894A4424886DBB0010BF88 /* CreateAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
+		92B47747255083790000A705 /* DriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
+		92B47748255083790000A705 /* DriverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverViewController.xib; sourceTree = "<group>"; };
+		92B4774D255084420000A705 /* DriverCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCoordinator.swift; sourceTree = "<group>"; };
 		92C1E249249C440600505220 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerViewController.swift; sourceTree = "<group>"; };
 		92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassengerViewController.xib; sourceTree = "<group>"; };
@@ -169,6 +177,7 @@
 				92894A3C248733FA0010BF88 /* MainCoordinator.swift */,
 				92C1E249249C440600505220 /* LoginCoordinator.swift */,
 				92C1E24F24BE7A5100505220 /* PassengerCoordinator.swift */,
+				92B4774D255084420000A705 /* DriverCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -182,6 +191,8 @@
 				92894A4424886DBB0010BF88 /* CreateAccountViewController.xib */,
 				92C1E24B24B6A5CD00505220 /* PassengerViewController.swift */,
 				92C1E24C24B6A5CD00505220 /* PassengerViewController.xib */,
+				92B47747255083790000A705 /* DriverViewController.swift */,
+				92B47748255083790000A705 /* DriverViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				92F03B48252BFBD90098C2DC /* UberConstants.swift */,
+				92358367259386CF00FA754F /* UserType.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -282,6 +294,7 @@
 				92894A42248868930010BF88 /* LoginViewController.xib in Resources */,
 				92894A1D248720F20010BF88 /* LaunchScreen.storyboard in Resources */,
 				92894A4624886DBB0010BF88 /* CreateAccountViewController.xib in Resources */,
+				92B4774A255083790000A705 /* DriverViewController.xib in Resources */,
 				92894A392487304D0010BF88 /* GoogleService-Info.plist in Resources */,
 				92894A1A248720F20010BF88 /* Assets.xcassets in Resources */,
 				92894A18248720EF0010BF88 /* Main.storyboard in Resources */,
@@ -372,9 +385,12 @@
 				92C1E25024BE7A5100505220 /* PassengerCoordinator.swift in Sources */,
 				92894A3D248733FA0010BF88 /* MainCoordinator.swift in Sources */,
 				92894A15248720EF0010BF88 /* ViewController.swift in Sources */,
+				92B4774E255084420000A705 /* DriverCoordinator.swift in Sources */,
+				92B47749255083790000A705 /* DriverViewController.swift in Sources */,
 				92894A4524886DBB0010BF88 /* CreateAccountViewController.swift in Sources */,
 				92894A3B2487311E0010BF88 /* Storyboarded.swift in Sources */,
 				92C1E24A249C440600505220 /* LoginCoordinator.swift in Sources */,
+				92358368259386CF00FA754F /* UserType.swift in Sources */,
 				92F03B49252BFBD90098C2DC /* UberConstants.swift in Sources */,
 				92894A11248720EF0010BF88 /* AppDelegate.swift in Sources */,
 				92894A13248720EF0010BF88 /* SceneDelegate.swift in Sources */,

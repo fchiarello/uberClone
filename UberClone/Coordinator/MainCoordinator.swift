@@ -44,6 +44,13 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         child.start()
     }
     
+    func driver() {
+        let child = DriverCoordinator(navigationController: navigationController)
+        childCoordinators.append(child)
+        child.parentCoordinator = self
+        child.start()
+    }
+    
     func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in
             childCoordinators.enumerated() {
