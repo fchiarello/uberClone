@@ -19,4 +19,8 @@ public class UberConstants {
     static let kDriver = "motorista"
     static let kuser = "usuarios"
     static let kType = "tipo"
+    static let kCellId = "driverCell"
+    static let kDriverCellClass = "DriverTableViewCell"
+    static let kLogout = "logout"
+    static let kRequests = "Requests"
 }

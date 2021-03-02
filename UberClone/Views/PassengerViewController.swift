@@ -17,6 +17,7 @@ class PassengerViewController: UIViewController, Storyboarded {
     var locationManager = CLLocationManager()
     var userLocation = CLLocationCoordinate2D()
     var uberCalled: Bool = false
+    var userData = [ String() : String() ]
     
     let auth = Auth.auth()
     let database = Database.database().reference()
@@ -112,16 +113,23 @@ extension PassengerViewController: CLLocationManagerDelegate {
     }
     
     func getUserData() -> Dictionary<String, String> {
-        let email = self.auth.currentUser?.email
-        let name = self.auth.currentUser?.displayName
-        let latitude = self.userLocation.latitude
-        let longitude = self.userLocation.longitude
+        let currentUser = self.auth.currentUser
+        let email = currentUser?.email
+        let uid = currentUser?.uid ?? String()
+        let users = database.child(UberConstants.kuser).child(uid)
         
-        let userData = [UberConstants.kEmail : email ?? String(),
-                        UberConstants.kName : name ?? String(),
-                        UberConstants.kLatitude : String(describing: latitude),
-                        UberConstants.kLongitude : String(describing: longitude)]
-        
+        users.observeSingleEvent(of: .value) { (snapshot) in
+            let data = snapshot.value as? NSDictionary
+            let name = data![UberConstants.kName] as? String
+            
+            let latitude = self.userLocation.latitude
+            let longitude = self.userLocation.longitude
+            
+            self.userData = [UberConstants.kEmail : email ?? String(),
+                            UberConstants.kName : name ?? String(),
+                            UberConstants.kLatitude : String(describing: latitude),
+                            UberConstants.kLongitude : String(describing: longitude)]
+        }
         return userData
     }
 }
